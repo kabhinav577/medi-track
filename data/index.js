@@ -21,7 +21,7 @@ export const medications = [
     dosage: '20mg',
     time: 'Night',
     day: 'Everyday',
-    type: 'Capsule',
+    type: 'Tablet',
   },
   {
     id: 4,

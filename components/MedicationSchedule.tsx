@@ -9,6 +9,7 @@ import {
 } from '@/components/ui/accordion';
 import { WiSunrise, WiDaySunny } from 'react-icons/wi';
 import { GiNightSleep } from 'react-icons/gi';
+import MedicationDetails from './MedicationDetails';
 
 interface MedicationScheduleProps {
   date: Date;
@@ -52,7 +53,7 @@ const MedicationSchedule: React.FC<MedicationScheduleProps> = ({ date }) => {
       <h1 className="text-2xl font-semibold text-rose-700">
         Medication Schedule
       </h1>
-      <div className="w-full flex flex-col gap-8 items-center">
+      <div className="w-full md:w-[90%] xl:w-[75%] flex flex-col gap-8 items-center">
         {/* Morning Accordion */}
         <Accordion
           type="single"
@@ -67,13 +68,14 @@ const MedicationSchedule: React.FC<MedicationScheduleProps> = ({ date }) => {
               </div>
             </AccordionTrigger>
             <AccordionContent>
-              {morningMedication &&
-                morningMedication.map((medication: any) => (
-                  <div key={medication.id} className="mb-2">
-                    <strong>{medication.name}</strong> - Dosage:{' '}
-                    {medication.dosage}, Day: {medication.day}
-                  </div>
-                ))}
+              <div className="w-full flex flex-col items-center justify-center md:flex-row gap-4">
+                {morningMedication &&
+                  morningMedication.map((medication: any) => (
+                    <div key={medication.id} className="mb-2 w-full">
+                      <MedicationDetails medication={medication} />
+                    </div>
+                  ))}
+              </div>
             </AccordionContent>
           </AccordionItem>
         </Accordion>
@@ -92,13 +94,14 @@ const MedicationSchedule: React.FC<MedicationScheduleProps> = ({ date }) => {
               </div>
             </AccordionTrigger>
             <AccordionContent>
-              {afternoonMedication &&
-                afternoonMedication.map((medication: any) => (
-                  <div key={medication.id} className="mb-2">
-                    <strong>{medication.name}</strong> - Dosage:{' '}
-                    {medication.dosage}, Day: {medication.day}
-                  </div>
-                ))}
+              <div className="w-full flex flex-col items-center justify-center md:flex-row gap-4">
+                {afternoonMedication &&
+                  afternoonMedication.map((medication: any) => (
+                    <div key={medication.id} className="mb-2 w-full">
+                      <MedicationDetails medication={medication} />
+                    </div>
+                  ))}
+              </div>
             </AccordionContent>
           </AccordionItem>
         </Accordion>
@@ -117,13 +120,14 @@ const MedicationSchedule: React.FC<MedicationScheduleProps> = ({ date }) => {
               </div>
             </AccordionTrigger>
             <AccordionContent>
-              {nightMedication &&
-                nightMedication.map((medication: any) => (
-                  <div key={medication.id} className="mb-2">
-                    <strong>{medication.name}</strong> - Dosage:{' '}
-                    {medication.dosage}, Day: {medication.day}
-                  </div>
-                ))}
+              <div className="w-full flex flex-col items-center justify-center md:flex-row gap-4">
+                {nightMedication &&
+                  nightMedication.map((medication: any) => (
+                    <div key={medication.id} className="mb-2 w-full">
+                      <MedicationDetails medication={medication} />
+                    </div>
+                  ))}
+              </div>
             </AccordionContent>
           </AccordionItem>
         </Accordion>
