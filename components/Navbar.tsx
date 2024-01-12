@@ -1,44 +1,66 @@
 'use client';
 
+import Link from 'next/link';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import MenuItem from './MenuItem';
+import { useRouter } from 'next/navigation';
+import { AiOutlineMenu } from 'react-icons/ai';
+
 const Navbar = () => {
+  const [open, setOpen] = useState(false);
+  const router = useRouter();
+
+  const toggleOpen = useCallback(() => {
+    setOpen((value) => !value);
+  }, []);
+
   return (
-    <header className="flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-white text-sm py-4 dark:bg-gray-800">
+    <header className="flex flex-wrap sm:justify-start sm:flex-nowrap fixed z-50 w-full bg-white text-sm py-4 dark:bg-gray-800">
       <nav
-        className="max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between"
+        className="max-w-[85rem] w-full mx-auto px-4 flex items-center justify-between relative"
         aria-label="Global"
       >
-        <a
-          className="flex-none text-xl font-semibold text-rose-500 dark:text-white"
-          href="#"
-        >
-          MediTracker
-        </a>
-        <div className="flex flex-row items-center gap-5 mt-5 sm:justify-end sm:mt-0 sm:ps-5">
-          <a
-            className="font-medium text-blue-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-            href="#"
-            aria-current="page"
+        <div className="w-full flex items-center justify-between">
+          <Link
+            className="flex-none text-2xl font-semibold text-rose-500 dark:text-white"
+            href="/"
           >
-            Home
-          </a>
-          <a
-            className="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-            href="#"
+            Medi-Tracker
+          </Link>
+          <div
+            onClick={toggleOpen}
+            className="p-4 md:py-1 md:px-2  flex flex-row items-center gap-3 rounded-full cursor-pointer  transition md:hidden"
           >
-            Notifications
-          </a>
-          <a
-            className="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-            href="#"
-          >
-            Contact
-          </a>
-          <a
-            className="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-            href="#"
-          >
-            About
-          </a>
+            <AiOutlineMenu size={18} />
+          </div>
+        </div>
+
+        <div className="flex flex-row items-center gap-5 mt-5 sm:justify-end sm:mt-0 sm:ps-5 text-base">
+          {open && (
+            <div className="absolute rounded-xl shadow-md w-[40vw] md:w-3/4 bg-white overflow-hidden right-0 top-12 text-sm">
+              <div className="flex flex-col cursor-pointer">
+                <MenuItem onClick={() => router.push('/')} label="Home" />
+                <MenuItem
+                  onClick={() => router.push('/notifications')}
+                  label="Notifications"
+                />
+                <MenuItem onClick={() => router.push('/about')} label="About" />
+                <MenuItem
+                  onClick={() => router.push('/contact')}
+                  label="Contact"
+                />
+              </div>
+            </div>
+          )}
+          <div className="md:flex hidden">
+            <MenuItem onClick={() => router.push('/')} label="Home" />
+            <MenuItem
+              onClick={() => router.push('/notifications')}
+              label="Notifications"
+            />
+            <MenuItem onClick={() => router.push('/about')} label="About" />
+            <MenuItem onClick={() => router.push('/contact')} label="Contact" />
+          </div>
         </div>
       </nav>
     </header>

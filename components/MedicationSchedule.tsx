@@ -50,7 +50,7 @@ const MedicationSchedule: React.FC<MedicationScheduleProps> = ({ date }) => {
 
   return (
     <div className="mt-4 w-full flex flex-col gap-4 items-center justify-center">
-      <h1 className="text-2xl font-semibold text-rose-700">
+      <h1 className="text-3xl font-semibold text-rose-700">
         Medication Schedule
       </h1>
       <div className="w-full md:w-[90%] xl:w-[75%] flex flex-col gap-8 items-center">
@@ -63,7 +63,7 @@ const MedicationSchedule: React.FC<MedicationScheduleProps> = ({ date }) => {
           <AccordionItem value="item-1">
             <AccordionTrigger className="text-xl font-bold">
               <div className="flex items-center justify-center">
-                <WiSunrise className="mr-2 text-rose-700" />
+                <WiSunrise className="mr-2 text-rose-700" size={28} />
                 <h2 className="text-gray-700 hover:text-sky-700">Morning</h2>
               </div>
             </AccordionTrigger>
@@ -89,7 +89,7 @@ const MedicationSchedule: React.FC<MedicationScheduleProps> = ({ date }) => {
           <AccordionItem value="item-1">
             <AccordionTrigger className="text-xl font-bold">
               <div className="flex items-center justify-center">
-                <WiDaySunny className="mr-2 text-yellow-700" />
+                <WiDaySunny className="mr-2 text-yellow-700" size={28} />
                 <h2 className="text-gray-700 hover:text-sky-700">Afternoon</h2>
               </div>
             </AccordionTrigger>
@@ -115,7 +115,7 @@ const MedicationSchedule: React.FC<MedicationScheduleProps> = ({ date }) => {
           <AccordionItem value="item-1">
             <AccordionTrigger className="text-xl font-bold">
               <div className="flex items-center justify-center">
-                <GiNightSleep className="mr-2 text-sky-700" />
+                <GiNightSleep className="mr-2 text-sky-700" size={28} />
                 <h2 className="text-gray-700 hover:text-sky-700">Night</h2>
               </div>
             </AccordionTrigger>

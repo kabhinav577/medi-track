@@ -49,7 +49,7 @@ const DateCarousel: React.FC<DateCarouselProps> = ({}) => {
   };
 
   return (
-    <div className="flex items-center justify-between w-full px-4 bg-gray-50">
+    <div className="flex items-center justify-between w-full px-4 py-4">
       <button
         onClick={() => handleDateChange(-1)}
         className=" hover:bg-gray-200 p-2 rounded-full focus:outline-none"
