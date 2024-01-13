@@ -25,7 +25,7 @@ const MedicationDetails: React.FC<MedicationDetailsProps> = ({
     <>
       <Card>
         <CardHeader>
-          <CardTitle className="flex justify-between">
+          <CardTitle className="flex justify-between text-gray-700">
             {medication.name}
             {(medication.type === 'Pill' && (
               <PiPillDuotone size={32} color="#FD3D25" />

@@ -6,6 +6,25 @@ import MenuItem from './MenuItem';
 import { useRouter } from 'next/navigation';
 import { AiOutlineMenu } from 'react-icons/ai';
 
+const links = [
+  {
+    label: 'Home',
+    href: '/',
+  },
+  {
+    label: 'Notifications',
+    href: '/notifications',
+  },
+  {
+    label: 'About',
+    href: '/about',
+  },
+  {
+    label: 'Contact',
+    href: '/contact',
+  },
+];
+
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const router = useRouter();
@@ -39,27 +58,27 @@ const Navbar = () => {
           {open && (
             <div className="absolute rounded-xl shadow-md w-[40vw] md:w-3/4 bg-white overflow-hidden right-0 top-12 text-sm">
               <div className="flex flex-col cursor-pointer">
-                <MenuItem onClick={() => router.push('/')} label="Home" />
-                <MenuItem
-                  onClick={() => router.push('/notifications')}
-                  label="Notifications"
-                />
-                <MenuItem onClick={() => router.push('/about')} label="About" />
-                <MenuItem
-                  onClick={() => router.push('/contact')}
-                  label="Contact"
-                />
+                {links.map((link) => (
+                  <MenuItem
+                    key={link.href}
+                    onClick={() => router.push(link.href)}
+                    label={link.label}
+                    href={link.href}
+                  />
+                ))}
+                <div className="bg-gray-100 w-full h-1" />
               </div>
             </div>
           )}
           <div className="md:flex hidden">
-            <MenuItem onClick={() => router.push('/')} label="Home" />
-            <MenuItem
-              onClick={() => router.push('/notifications')}
-              label="Notifications"
-            />
-            <MenuItem onClick={() => router.push('/about')} label="About" />
-            <MenuItem onClick={() => router.push('/contact')} label="Contact" />
+            {links.map((link) => (
+              <MenuItem
+                key={link.href}
+                onClick={() => router.push(link.href)}
+                label={link.label}
+                href={link.href}
+              />
+            ))}
           </div>
         </div>
       </nav>
