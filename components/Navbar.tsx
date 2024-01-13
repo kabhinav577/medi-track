@@ -1,10 +1,11 @@
 'use client';
 
 import Link from 'next/link';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useState } from 'react';
 import MenuItem from './MenuItem';
 import { useRouter } from 'next/navigation';
 import { AiOutlineMenu } from 'react-icons/ai';
+import { IoMdClose } from 'react-icons/io';
 
 const links = [
   {
@@ -34,7 +35,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className="flex flex-wrap sm:justify-start sm:flex-nowrap fixed z-50 w-full bg-white text-sm py-4 dark:bg-gray-800">
+    <header className="flex flex-wrap sm:justify-start sm:flex-nowrap fixed z-50 w-full bg-gray-100 border-b-2 text-sm py-4 dark:bg-gray-800 px-6">
       <nav
         className="max-w-[85rem] w-full mx-auto px-4 flex items-center justify-between relative"
         aria-label="Global"
@@ -48,9 +49,9 @@ const Navbar = () => {
           </Link>
           <div
             onClick={toggleOpen}
-            className="p-4 md:py-1 md:px-2  flex flex-row items-center gap-3 rounded-full cursor-pointer  transition md:hidden"
+            className="p-4 md:py-1 md:px-2  flex flex-row items-center gap-3 rounded-full cursor-pointer transition md:hidden"
           >
-            <AiOutlineMenu size={18} />
+            {open ? <IoMdClose size={18} /> : <AiOutlineMenu size={18} />}
           </div>
         </div>
 

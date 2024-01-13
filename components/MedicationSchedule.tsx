@@ -50,10 +50,7 @@ const MedicationSchedule: React.FC<MedicationScheduleProps> = ({ date }) => {
 
   return (
     <div className="mt-4 w-full flex flex-col gap-4 items-center justify-center">
-      <h1 className="text-3xl font-semibold text-rose-500">
-        <strong>Medication Schedule</strong>
-      </h1>
-      <div className="w-full md:w-[90%] xl:w-[75%] flex flex-col justify-center gap-8 items-center">
+      <div className="w-full md:w-[90%] flex flex-col justify-center gap-8 items-center">
         {/* Morning Accordion */}
         <Accordion
           type="single"
