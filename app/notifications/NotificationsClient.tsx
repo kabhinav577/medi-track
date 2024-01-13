@@ -48,7 +48,7 @@ const NotificationsClient: React.FC<NotificationsClientProps> = ({ date }) => {
     fetchData();
   }, [date]);
   return (
-    <div className="mt-4 w-full h-auto flex flex-col gap-2 items-center justify-start">
+    <div className="mt-8 w-full h-auto flex flex-col gap-2 items-center justify-start">
       <h1 className="text-3xl font-bold flex justify-center items-center gap-2 text-gray-700">
         Notifications
         <FaBell className="text-rose-500" />
