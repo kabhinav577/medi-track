@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Medi-Tracker
 
-## Getting Started
+Welcome to Medi-Tracker a revolutionary health and wellness application designed specifically for individuals aged 65 and above. Our mission is to empower seniors like Sunita Sharma to lead healthier, more fulfilling lives through the use of cutting-edge technology.
 
-First, run the development server:
+## Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+![Homepage](./screenshot/home.png)
+![Notifications page](./screenshot/notifications.png)
+![About Page](./screenshot/about.png)
+![Footer](./screenshot/footer.png)
+![Mobile Homepage](./screenshot/mobile-home.png)
+![Mobile Notifications](./screenshot/mobile-notifications.png)
+![Mobile Footer](./screenshot/mobile-footer.png)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Personalized Health Insights
+- Medication Reminders
+- Physical Activity Tracking
+- Nutrition Guidance
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Acknowledgements
 
-## Learn More
+- [ReactJS](https://react.dev)
+- [Next JS](https://nextjs.org)
+- [Tailwind CSS](https://tailwindcss.com)
 
-To learn more about Next.js, take a look at the following resources:
+## How to Start the Project
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Follow these steps to run the Medi-tracker on your local machine:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. **Clone the Repository**:
+   Clone this repository to your local machine using the following command:
 
-## Deploy on Vercel
+   ```bash
+   git clone https://github.com/kabhinav577/medi-track.git
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. Navigate to the Project Directory:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+   ```
+   cd medi-track
+
+   ```
+
+3. Install Dependencies:
+
+   ```
+   npm install
+
+   ```
+
+4. Start the Development Server:
+   ```
+   npm run dev
+   ```
+5. Access the App:
+   ```
+   Open your web browser and navigate to http://localhost:3000 to access the medi-track app.
+   ```
+
+## Authors
+
+- [@krishna Kant singh](https://www.github.com/kabhinav577)
