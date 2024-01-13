@@ -9,6 +9,7 @@ interface NotificationsClientProps {
 }
 
 const NotificationsClient: React.FC<NotificationsClientProps> = ({ date }) => {
+  const [taken, setTaken] = useState(false);
   const [medications, setMedications] = useState([]);
 
   const morningMedication = medications.filter(
@@ -24,6 +25,10 @@ const NotificationsClient: React.FC<NotificationsClientProps> = ({ date }) => {
   );
 
   const time = new Date().getHours();
+
+  const takeToggleButton = () => {
+    setTaken(!taken);
+  };
 
   useEffect(() => {
     // Fetch medications data based on the selected date
@@ -43,28 +48,50 @@ const NotificationsClient: React.FC<NotificationsClientProps> = ({ date }) => {
     fetchData();
   }, [date]);
   return (
-    <div className="mt-4 w-full h-auto flex flex-col gap-4 items-center justify-start">
-      <h2 className="text-2xl font-bold flex justify-center items-center gap-2 text-gray-700">
-        Medications Notifications
+    <div className="mt-4 w-full h-auto flex flex-col gap-2 items-center justify-start">
+      <h1 className="text-3xl font-bold flex justify-center items-center gap-2 text-gray-700">
+        Notifications
         <FaBell className="text-rose-500" />
-      </h2>
-      <div className="w-[90%] flex flex-col md:flex-row items-center my-4 gap-4">
+      </h1>
+      <div className="w-[90%] flex flex-col md:flex-row md:flex-wrap items-center my-4 gap-2">
         {time <= 9 &&
           morningMedication.map((medication: any) => (
             <div
               key={medication.id}
-              className="mb-2 w-full shadow-lg rounded-md"
+              className="mb-2 w-full md:w-[45%] shadow-lg rounded-md"
             >
               <MedicationDetails medication={medication} />
+              <div className="flex justify-between items-center px-4 py-2">
+                <button className="text-yellow-500 hover:text-yellow-600 text-base font-medium">
+                  Skip
+                </button>
+                <button
+                  className="text-green-500 hover:text-green-600 text-base font-medium"
+                  onClick={takeToggleButton}
+                >
+                  {taken ? 'Taken' : 'Take'}
+                </button>
+              </div>
             </div>
           ))}
         {time <= 14 &&
           afternoonMedication.map((medication: any) => (
             <div
               key={medication.id}
-              className="mb-2 w-full shadow-lg rounded-md"
+              className="mb-2 w-full md:w-[45%] shadow-lg rounded-md"
             >
               <MedicationDetails medication={medication} />
+              <div className="flex justify-between items-center px-4 py-2">
+                <button className="text-yellow-500 hover:text-yellow-600 text-base font-medium">
+                  Skip
+                </button>
+                <button
+                  className="text-green-500 hover:text-green-600 text-base font-medium"
+                  onClick={takeToggleButton}
+                >
+                  {taken ? 'Taken' : 'Take'}
+                </button>
+              </div>
             </div>
           ))}
         {time <= 21 &&
@@ -72,9 +99,20 @@ const NotificationsClient: React.FC<NotificationsClientProps> = ({ date }) => {
           nightMedication.map((medication: any) => (
             <div
               key={medication.id}
-              className="mb-2 w-full shadow-lg rounded-md"
+              className="mb-2 w-full md:w-[45%] shadow-lg rounded-md"
             >
               <MedicationDetails medication={medication} />
+              <div className="flex justify-between items-center px-4 py-2">
+                <button className="text-yellow-500 hover:text-yellow-600 text-base font-medium">
+                  Skip
+                </button>
+                <button
+                  className="text-green-500 hover:text-green-600 text-base font-medium"
+                  onClick={takeToggleButton}
+                >
+                  {taken ? 'Taken' : 'Take'}
+                </button>
+              </div>
             </div>
           ))}
       </div>

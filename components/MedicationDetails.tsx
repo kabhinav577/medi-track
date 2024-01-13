@@ -13,6 +13,7 @@ import { PiPillDuotone } from 'react-icons/pi';
 import { BiInjection } from 'react-icons/bi';
 import { TbMedicineSyrup } from 'react-icons/tb';
 import { FaTablets } from 'react-icons/fa';
+import { FaGlassWater } from 'react-icons/fa6';
 
 interface MedicationDetailsProps {
   medication: any;
@@ -38,6 +39,9 @@ const MedicationDetails: React.FC<MedicationDetailsProps> = ({
               )) ||
               (medication.type === 'Tablet' && (
                 <FaTablets size={32} color="#0070f3" />
+              )) ||
+              (medication.type === 'Water' && (
+                <FaGlassWater size={32} color="#0070f3" />
               ))}
           </CardTitle>
           <CardDescription>
